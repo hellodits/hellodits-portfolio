@@ -51,9 +51,16 @@ export default function Navbar() {
             <div className="flex justify-start">
               <Link 
                 to="/" 
-                className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent tracking-tight hover:opacity-80 transition-opacity"
+                className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity group"
               >
-                hellodits
+                <img 
+                  src={`${import.meta.env.BASE_URL}logo.png`}
+                  alt="hellodits logo" 
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-105 transition-transform"
+                />
+                <span className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent tracking-tight">
+                  hellodits
+                </span>
               </Link>
             </div>
 
