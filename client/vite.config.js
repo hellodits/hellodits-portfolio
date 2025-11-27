@@ -3,7 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/portfolio/', // Ganti 'portfolio' dengan nama repository Anda
+  // Untuk username.github.io gunakan '/'
+  // Untuk project site gunakan '/repository-name/'
+  base: '/hellodits-portfolio/', // Project site
   server: {
     port: 5173
   },
