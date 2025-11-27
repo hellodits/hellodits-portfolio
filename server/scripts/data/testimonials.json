@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Sita Rahma",
+    "role": "Product Manager, FinTech Innovations",
+    "avatar": "/assets/testimonials/sita.jpg",
+    "quote": "Bekerja dengan developer ini sangat menyenangkan! Delivery tepat waktu, komunikasi lancar, dan fitur yang diimplementasikan melebihi ekspektasi. Highly recommended!",
+    "rating": 5
+  },
+  {
+    "name": "Dimas Putra",
+    "role": "Founder & CEO, ShopCo",
+    "avatar": "/assets/testimonials/dimas.jpg",
+    "quote": "Solusi yang diberikan tidak hanya fungsional tapi juga scalable dan maintainable. Perfect untuk startup yang butuh MVP berkualitas dengan timeline cepat.",
+    "rating": 5
+  },
+  {
+    "name": "Amanda Wijaya",
+    "role": "CTO, Digital Agency Pro",
+    "avatar": "/assets/testimonials/amanda.jpg",
+    "quote": "Kualitas code sangat baik, clean architecture, dan well-documented. Sangat membantu tim kami dalam development jangka panjang. Will definitely work together again!",
+    "rating": 5
+  },
+  {
+    "name": "Budi Santoso",
+    "role": "Marketing Director, EventHub",
+    "avatar": "/assets/testimonials/budi.jpg",
+    "quote": "Platform yang dibangun sangat user-friendly dan performanya excellent. User kami sangat puas dengan experience yang diberikan. Great job!",
+    "rating": 5
+  },
+  {
+    "name": "Rina Kusuma",
+    "role": "Founder, FitLife Studio",
+    "avatar": "/assets/testimonials/rina.jpg",
+    "quote": "Dari konsep hingga deployment, prosesnya sangat smooth. Developer ini benar-benar memahami kebutuhan bisnis dan mentranslate ke dalam solusi teknis yang tepat.",
+    "rating": 5
+  },
+  {
+    "name": "Arief Rahman",
+    "role": "Tech Lead, StartupHub",
+    "avatar": "/assets/testimonials/arief.jpg",
+    "quote": "Impressive technical skills dan problem-solving ability. Mampu handle complex requirements dengan solusi yang elegant dan efficient. Highly skilled developer!",
+    "rating": 5
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Building Real-Time Dashboards with Socket.io",
+    "slug": "real-time-dashboards-socketio",
+    "excerpt": "Panduan cepat membuat dashboard realtime menggunakan Socket.io dan MongoDB Change Streams.",
+    "content": "Socket.io memungkinkan komunikasi bidirectional realtime antara client dan server. Dalam artikel ini, kita akan membahas cara mengintegrasikan Socket.io dengan MongoDB Change Streams untuk membuat dashboard yang update secara otomatis...",
+    "cover": "/assets/blog/socketio.jpg",
+    "date": "2024-06-10",
+    "tags": ["Realtime", "Node.js", "Socket.io"]
+  },
+  {
+    "title": "Optimizing React Performance for Large Lists",
+    "slug": "optimizing-react-large-lists",
+    "excerpt": "Teknik memoization, virtualization, dan code splitting untuk performa React.",
+    "content": "Ketika bekerja dengan list besar di React, performa bisa menjadi bottleneck. Artikel ini membahas teknik-teknik seperti React.memo, useMemo, useCallback, dan react-window untuk virtualization...",
+    "cover": "/assets/blog/react-perf.jpg",
+    "date": "2024-02-05",
+    "tags": ["React", "Performance"]
+  },
+  {
+    "title": "Designing Clean Developer Portfolios",
+    "slug": "designing-clean-portfolios",
+    "excerpt": "Best practice untuk portfolio yang menarik recruiter dan klien.",
+    "content": "Portfolio yang baik harus menampilkan skill dan project dengan jelas, mudah dinavigasi, dan memiliki call-to-action yang jelas. Berikut adalah panduan lengkap untuk membuat portfolio developer yang efektif...",
+    "cover": "/assets/blog/portfolio-design.jpg",
+    "date": "2023-11-20",
+    "tags": ["Design", "Portfolio"]
+  }
+]
