@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { ExternalLink, Sparkles } from 'lucide-react';
+import { getAssetUrl } from '../lib/utils';
 
 export default function PortfolioCarousel({ projects }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -117,7 +118,7 @@ export default function PortfolioCarousel({ projects }) {
                 >
                   {/* Image with zoom effect */}
                   <img 
-                    src={project.cover} 
+                    src={getAssetUrl(project.cover)} 
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />

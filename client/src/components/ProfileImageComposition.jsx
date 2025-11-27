@@ -1,6 +1,7 @@
 import { Github, Instagram, Linkedin } from 'lucide-react';
 
 export default function ProfileImageComposition() {
+  const baseUrl = import.meta.env.BASE_URL;
   const socialLinks = [
     { icon: Github, href: 'https://github.com/hellodits', label: 'Github' },
     { icon: Instagram, href: 'https://instagram.com/ditafrstk', label: 'Instagram' },
@@ -16,7 +17,7 @@ export default function ProfileImageComposition() {
       <div className="relative bg-blue-600 rounded-2xl overflow-hidden shadow-2xl shadow-blue-600/50">
         {/* Layer 3 - The Image */}
         <img 
-          src="/assets/profile.png" 
+          src={`${baseUrl}assets/profile.png`}
           alt="Profile" 
           className="w-full h-auto aspect-[4/5] object-cover object-top"
         />

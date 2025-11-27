@@ -13,29 +13,31 @@ export default function ToolsCarousel() {
     }
   `;
 
+  const baseUrl = import.meta.env.BASE_URL;
+
   // Row 1 Tools - DENGAN GAMBAR
   const row1Tools = [
-    { name: 'MongoDB', category: 'Database', icon: '/icons/mongodb.svg', color: 'from-green-500 to-teal-500' },
-    { name: 'TailwindCSS', category: 'Styling', icon: '/icons/tailwindcss.svg', color: 'from-cyan-400 to-blue-500' },
-    { name: 'Express', category: 'Backend', icon: '/icons/express.svg', color: 'from-gray-600 to-gray-800' },
-    { name: 'TypeScript', category: 'Language', icon: '/icons/typescript.svg', color: 'from-blue-500 to-blue-700' },
-    { name: 'Git', category: 'Version Control', icon: '/icons/git.svg', color: 'from-orange-500 to-red-500' },
-    { name: 'Prisma', category: 'ORM', icon: '/icons/prisma.svg', color: 'from-indigo-400 to-purple-500' },
-    { name: 'Java Script', category: 'Frontend', icon: '/icons/javascript.svg', color: 'from-yellow-500 to-orange-500' },
-    { name: 'Go', category: 'Backend', icon: '/icons/go.svg', color: 'from-blue-500 to-blue-700' },
-    { name: 'Kotlin', category: 'Language', icon: '/icons/kotlin.svg', color: 'from-yellow-500 to-orange-500' },
+    { name: 'MongoDB', category: 'Database', icon: `${baseUrl}icons/mongodb.svg`, color: 'from-green-500 to-teal-500' },
+    { name: 'TailwindCSS', category: 'Styling', icon: `${baseUrl}icons/tailwindcss.svg`, color: 'from-cyan-400 to-blue-500' },
+    { name: 'Express', category: 'Backend', icon: `${baseUrl}icons/express.svg`, color: 'from-gray-600 to-gray-800' },
+    { name: 'TypeScript', category: 'Language', icon: `${baseUrl}icons/typescript.svg`, color: 'from-blue-500 to-blue-700' },
+    { name: 'Git', category: 'Version Control', icon: `${baseUrl}icons/git.svg`, color: 'from-orange-500 to-red-500' },
+    { name: 'Prisma', category: 'ORM', icon: `${baseUrl}icons/prisma.svg`, color: 'from-indigo-400 to-purple-500' },
+    { name: 'Java Script', category: 'Frontend', icon: `${baseUrl}icons/javascript.svg`, color: 'from-yellow-500 to-orange-500' },
+    { name: 'Go', category: 'Backend', icon: `${baseUrl}icons/go.svg`, color: 'from-blue-500 to-blue-700' },
+    { name: 'Kotlin', category: 'Language', icon: `${baseUrl}icons/kotlin.svg`, color: 'from-yellow-500 to-orange-500' },
   ];
 
   // Row 2 Tools - DENGAN GAMBAR
   const row2Tools = [
-    { name: 'React', category: 'Frontend', icon: '/icons/react.svg', color: 'from-blue-400 to-cyan-400' },
-    { name: 'Next.js', category: 'Framework', icon: '/icons/nextdotjs.svg', color: 'from-slate-700 to-slate-900' },
-    { name: 'Docker', category: 'DevOps', icon: '/icons/docker.svg', color: 'from-blue-400 to-blue-600' },
-    { name: 'PostgreSQL', category: 'Database', icon: '/icons/postgresql.svg', color: 'from-blue-600 to-indigo-600' },
-    { name: 'AWS', category: 'Cloud', icon: '/icons/aws.png', color: 'from-orange-400 to-yellow-500' },
-    { name: 'Figma', category: 'UI/UX', icon: '/icons/figma.svg', color: 'from-purple-400 to-pink-400' },
-    { name: 'Node.js', category: 'Backend', icon: '/icons/nodedotjs.svg', color: 'from-green-400 to-emerald-400' },
-    { name: 'Firebase', category: 'Database', icon: '/icons/firebase.svg', color: 'from-yellow-500 to-orange-500' },
+    { name: 'React', category: 'Frontend', icon: `${baseUrl}icons/react.svg`, color: 'from-blue-400 to-cyan-400' },
+    { name: 'Next.js', category: 'Framework', icon: `${baseUrl}icons/nextdotjs.svg`, color: 'from-slate-700 to-slate-900' },
+    { name: 'Docker', category: 'DevOps', icon: `${baseUrl}icons/docker.svg`, color: 'from-blue-400 to-blue-600' },
+    { name: 'PostgreSQL', category: 'Database', icon: `${baseUrl}icons/postgresql.svg`, color: 'from-blue-600 to-indigo-600' },
+    { name: 'AWS', category: 'Cloud', icon: `${baseUrl}icons/aws.png`, color: 'from-orange-400 to-yellow-500' },
+    { name: 'Figma', category: 'UI/UX', icon: `${baseUrl}icons/figma.svg`, color: 'from-purple-400 to-pink-400' },
+    { name: 'Node.js', category: 'Backend', icon: `${baseUrl}icons/nodedotjs.svg`, color: 'from-green-400 to-emerald-400' },
+    { name: 'Firebase', category: 'Database', icon: `${baseUrl}icons/firebase.svg`, color: 'from-yellow-500 to-orange-500' },
   ];
 
   const allRow1Tools = [...row1Tools, ...row1Tools, ...row1Tools, ...row1Tools, ...row1Tools, ...row1Tools];

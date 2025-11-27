@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getProjects } from '../lib/api';
+import { getAssetUrl } from '../lib/utils';
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -78,7 +79,7 @@ export default function Projects() {
                 >
                   <div className="relative overflow-hidden aspect-video">
                     <img 
-                      src={project.cover} 
+                      src={getAssetUrl(project.cover)} 
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />

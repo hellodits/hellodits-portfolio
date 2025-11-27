@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getProjectBySlug } from '../lib/api';
+import { getAssetUrl } from '../lib/utils';
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -23,7 +24,7 @@ export default function ProjectDetail() {
       {/* Hero Image */}
       <section className="relative h-[60vh] overflow-hidden">
         <img 
-          src={project.cover} 
+          src={getAssetUrl(project.cover)} 
           alt={project.title}
           className="w-full h-full object-cover"
         />
@@ -69,7 +70,7 @@ export default function ProjectDetail() {
                     {project.screenshots.map((screenshot, idx) => (
                       <img 
                         key={idx}
-                        src={screenshot} 
+                        src={getAssetUrl(screenshot)} 
                         alt={`${project.title} screenshot ${idx + 1}`}
                         className="w-full rounded-lg shadow-md hover:shadow-xl transition"
                       />
