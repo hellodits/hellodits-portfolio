@@ -9,12 +9,12 @@ export default function ProfileImageComposition() {
   ];
 
   return (
-    <div className="relative w-full max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-sm mx-auto">
-      {/* Layer 1 - Background Outline (Wireframe) */}
-      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6 w-full h-full border-2 border-gray-900 rounded-2xl"></div>
+    <div className="relative w-full max-w-[192px] sm:max-w-[220px] md:max-w-[240px] lg:max-w-sm mx-auto">
+      {/* Layer 1 - Background Outline (Wireframe) - Thinner border */}
+      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6 w-full h-full border-[1.5px] border-gray-300 rounded-2xl"></div>
       
       {/* Layer 2 - Main Solid Frame (Blue Background) */}
-      <div className="relative bg-blue-600 rounded-2xl overflow-hidden shadow-2xl shadow-blue-600/50">
+      <div className="relative bg-blue-600 rounded-2xl overflow-hidden shadow-lg md:shadow-2xl shadow-blue-600/30 md:shadow-blue-600/50">
         {/* Layer 3 - The Image */}
         <img 
           src={`${baseUrl}assets/profile.png`}
@@ -24,8 +24,8 @@ export default function ProfileImageComposition() {
       </div>
 
       {/* Layer 4 - Social Icons - Bottom on mobile, Right on desktop */}
-      <div className="mt-4 flex justify-center gap-3 lg:hidden">
-        {/* Mobile: Horizontal Stack */}
+      <div className="mt-4 flex justify-center gap-3 lg:hidden scale-90">
+        {/* Mobile: Horizontal Stack - Smaller */}
         {socialLinks.map((social, idx) => {
           const Icon = social.icon;
           return (
@@ -35,7 +35,7 @@ export default function ProfileImageComposition() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.label}
-              className="w-10 h-10 bg-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-blue-50 group border border-slate-200"
+              className="w-10 h-10 bg-white rounded-full shadow-md hover:shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-blue-50 group border border-slate-200"
             >
               <Icon className="w-5 h-5 text-blue-600 group-hover:text-blue-700 transition-colors" />
             </a>

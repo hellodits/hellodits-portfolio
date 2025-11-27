@@ -21,7 +21,7 @@ export default function WhyHire() {
   ];
 
   return (
-    <section className="py-12 md:py-20 bg-white relative overflow-hidden">
+    <section className="pt-16 md:pt-20 pb-12 md:pb-20 bg-white relative overflow-hidden">
       {/* Decorative Particles - Circle Dots */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Blue dots */}

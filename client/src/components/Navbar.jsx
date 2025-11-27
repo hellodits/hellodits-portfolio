@@ -45,27 +45,27 @@ export default function Navbar() {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-white/80 backdrop-blur-sm shadow-sm'
       }`}>
-        <div className="container-custom">
-          <div className="grid grid-cols-3 items-center h-20 gap-4">
+        <div className="container-custom px-5">
+          <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo - Left */}
-            <div className="flex justify-start overflow-hidden">
+            <div className="flex items-center">
               <Link 
                 to="/" 
-                className="flex items-center gap-1.5 md:gap-3 hover:opacity-80 transition-opacity group"
+                className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity group"
               >
                 <img 
                   src={`${import.meta.env.BASE_URL}logo.png`}
                   alt="hellodits logo" 
-                  className="w-8 h-8 md:w-12 md:h-12 object-contain group-hover:scale-105 transition-transform flex-shrink-0"
+                  className="w-9 h-9 md:w-12 md:h-12 object-contain group-hover:scale-105 transition-transform flex-shrink-0"
                 />
-                <span className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                   hellodits
                 </span>
               </Link>
             </div>
 
             {/* Menu - Center (Desktop) */}
-            <div className="hidden md:flex items-center justify-center gap-8">
+            <div className="hidden md:flex items-center justify-center gap-8 flex-1">
               {menuItems.map(({ path, label }) => (
                 <Link 
                   key={path}
@@ -96,9 +96,9 @@ export default function Navbar() {
             </div>
 
             {/* Hamburger Button - Right (Mobile) */}
-            <div className="md:hidden flex justify-end col-span-2">
+            <div className="md:hidden flex justify-end">
               <button 
-                className="relative w-10 h-10 rounded-lg hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20"
+                className="relative w-10 h-10 rounded-lg hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20 mr-1"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
                 aria-expanded={isOpen}

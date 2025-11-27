@@ -8,7 +8,7 @@ export default function Statistics() {
   ];
 
   return (
-    <section className="py-8 md:py-12 bg-white relative overflow-hidden">
+    <section className="py-12 md:py-12 bg-white relative overflow-hidden mt-12">
       {/* Decorative Particles - Circle Dots */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Blue dots */}
@@ -25,27 +25,25 @@ export default function Statistics() {
       </div>
       
       <div className="container-custom px-4 relative z-10">
-        {/* Badge - Centered */}
-        <div className="flex justify-center mb-6">
-          <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2">
+        {/* Badge - Centered - Smaller on mobile */}
+        <div className="flex justify-center mb-5">
+          <span className="bg-blue-100 text-blue-700 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-xs font-bold flex items-center gap-2">
             <TrendingUp className="w-3 h-3" />
             Achievements
           </span>
         </div>
         
-        {/* Split screen 50:50 on mobile, 3 columns on desktop */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-3xl mx-auto">
+        {/* 1 column on mobile, 3 columns on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-sm md:max-w-3xl mx-auto px-4">
           {stats.map((stat, idx) => (
             <div 
               key={idx} 
-              className={`text-center p-4 md:p-5 bg-gradient-to-br from-slate-50 to-blue-50 rounded-lg md:rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 ${
-                idx === 2 ? 'col-span-2 md:col-span-1' : ''
-              }`}
+              className="text-center p-5 md:p-5 bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100"
             >
-              <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1 md:mb-1">
+              <div className="text-3xl md:text-3xl font-bold text-blue-600 mb-1">
                 {stat.number}
               </div>
-              <div className="text-xs md:text-sm text-slate-700 font-semibold">
+              <div className="text-sm md:text-sm text-slate-700 font-semibold">
                 {stat.label}
               </div>
             </div>

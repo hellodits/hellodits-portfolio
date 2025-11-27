@@ -46,8 +46,25 @@ export default function ToolsCarousel() {
   return (
     <>
       <style>{keyframesStyle}</style>
-      <section className="pt-28 md:pt-32 pb-20 md:pb-28 bg-gradient-to-b from-white to-blue-50/30 overflow-hidden">
-        <div className="container-custom px-6">
+      <section className="pt-16 md:pt-20 pb-20 md:pb-28 bg-gradient-to-b from-white to-blue-50/30 overflow-hidden relative">
+        {/* Decorative Particles - Circle Dots */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Blue dots */}
+          <div className="absolute top-16 left-12 w-3 h-3 bg-blue-500 rounded-full opacity-50 animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-2 h-2 bg-blue-400 rounded-full opacity-60"></div>
+          <div className="absolute bottom-20 left-1/4 w-4 h-4 bg-blue-600 rounded-full opacity-40 animate-bounce"></div>
+          
+          {/* Red/Rose dots */}
+          <div className="absolute top-24 right-1/3 w-3 h-3 bg-rose-500 rounded-full opacity-50"></div>
+          <div className="absolute bottom-32 right-16 w-2 h-2 bg-red-400 rounded-full opacity-60 animate-pulse"></div>
+          
+          {/* Yellow dots */}
+          <div className="absolute top-40 left-1/3 w-2 h-2 bg-yellow-400 rounded-full opacity-60 animate-bounce"></div>
+          <div className="absolute bottom-16 right-1/4 w-3 h-3 bg-yellow-500 rounded-full opacity-50"></div>
+          <div className="absolute top-1/2 left-16 w-2 h-2 bg-yellow-600 rounded-full opacity-60 animate-pulse"></div>
+        </div>
+        
+        <div className="container-custom px-6 relative z-10">
           <div className="text-center mb-12 md:mb-16">
             {/* Badge */}
             <div className="flex justify-center mb-4">
