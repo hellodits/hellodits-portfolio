@@ -48,17 +48,17 @@ export default function Navbar() {
         <div className="container-custom">
           <div className="grid grid-cols-3 items-center h-20 gap-4">
             {/* Logo - Left */}
-            <div className="flex justify-start">
+            <div className="flex justify-start overflow-hidden">
               <Link 
                 to="/" 
-                className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity group"
+                className="flex items-center gap-1.5 md:gap-3 hover:opacity-80 transition-opacity group"
               >
                 <img 
                   src={`${import.meta.env.BASE_URL}logo.png`}
                   alt="hellodits logo" 
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-105 transition-transform"
+                  className="w-8 h-8 md:w-12 md:h-12 object-contain group-hover:scale-105 transition-transform flex-shrink-0"
                 />
-                <span className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent tracking-tight">
+                <span className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                   hellodits
                 </span>
               </Link>

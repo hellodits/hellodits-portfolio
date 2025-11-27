@@ -10,9 +10,9 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <Router basename={import.meta.env.BASE_URL}>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen overflow-x-hidden">
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow overflow-x-hidden">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />

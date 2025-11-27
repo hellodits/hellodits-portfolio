@@ -6,26 +6,26 @@ export default function Hero() {
   return (
     <section className="min-h-[85vh] md:min-h-[90vh] flex items-center relative overflow-hidden bg-white pt-16 md:pt-20">
       {/* Decorative Particles - Circle Dots */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Blue dots */}
         <div className="absolute top-20 left-10 w-3 h-3 bg-blue-500 rounded-full opacity-60 animate-bounce"></div>
-        <div className="absolute top-40 left-32 w-2 h-2 bg-blue-400 rounded-full opacity-50 animate-pulse"></div>
+        <div className="hidden sm:block absolute top-40 left-32 w-2 h-2 bg-blue-400 rounded-full opacity-50 animate-pulse"></div>
         <div className="absolute bottom-32 left-20 w-4 h-4 bg-blue-600 rounded-full opacity-40"></div>
         
         {/* Red/Rose dots */}
         <div className="absolute top-32 right-24 w-3 h-3 bg-rose-500 rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute top-60 right-40 w-2 h-2 bg-red-400 rounded-full opacity-50"></div>
+        <div className="hidden sm:block absolute top-60 right-40 w-2 h-2 bg-red-400 rounded-full opacity-50"></div>
         <div className="absolute bottom-40 right-16 w-3 h-3 bg-rose-600 rounded-full opacity-50 animate-bounce"></div>
         
         {/* Yellow dots */}
         <div className="absolute top-48 left-1/4 w-2 h-2 bg-yellow-400 rounded-full opacity-60"></div>
-        <div className="absolute top-72 right-1/3 w-3 h-3 bg-yellow-500 rounded-full opacity-50 animate-pulse"></div>
+        <div className="hidden sm:block absolute top-72 right-1/3 w-3 h-3 bg-yellow-500 rounded-full opacity-50 animate-pulse"></div>
         <div className="absolute bottom-24 left-1/3 w-2 h-2 bg-yellow-600 rounded-full opacity-60 animate-bounce"></div>
         
         {/* Additional scattered dots */}
-        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-blue-500 rounded-full opacity-40"></div>
-        <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-rose-400 rounded-full opacity-50 animate-pulse"></div>
-        <div className="absolute top-2/3 right-1/2 w-2 h-2 bg-yellow-500 rounded-full opacity-60"></div>
+        <div className="hidden md:block absolute top-1/3 right-1/4 w-2 h-2 bg-blue-500 rounded-full opacity-40"></div>
+        <div className="hidden md:block absolute bottom-1/3 left-1/2 w-3 h-3 bg-rose-400 rounded-full opacity-50 animate-pulse"></div>
+        <div className="hidden md:block absolute top-2/3 right-1/2 w-2 h-2 bg-yellow-500 rounded-full opacity-60"></div>
       </div>
       
       <div className="w-full max-w-6xl mx-auto px-4 py-6 md:py-10 relative z-10">

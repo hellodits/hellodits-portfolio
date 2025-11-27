@@ -57,10 +57,10 @@ export default function ToolsCarousel() {
               </span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold mb-5 text-slate-900">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 text-slate-900">
               Tools I Use
             </h2>
-            <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-2">
               Daily tools that power my development workflow and bring ideas to life
             </p>
           </div>
