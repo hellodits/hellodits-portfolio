@@ -1,4 +1,6 @@
 export default function About() {
+  const baseUrl = import.meta.env.BASE_URL;
+  
   const skills = [
     { category: 'Frontend', items: ['React', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'Next.js'], icon: '🎨' },
     { category: 'Backend', items: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'REST APIs'], icon: '⚙️' },
@@ -70,14 +72,10 @@ export default function About() {
             <div className="relative">
               <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden flex items-center justify-center shadow-xl border border-slate-100">
                 <img 
-                  src="/assets/profile.png" 
+                  src={`${baseUrl}assets/profile.png`}
                   alt="Profile"
                   className="w-full h-full object-cover"
                   style={{filter: 'saturate(1.1) contrast(0.95)'}}
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<div class="text-6xl">👨‍💻</div>';
-                  }}
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-6 border border-slate-100">
