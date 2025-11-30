@@ -3,9 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  // Untuk username.github.io gunakan '/'
+  // Untuk custom domain gunakan '/'
   // Untuk project site gunakan '/repository-name/'
-  base: '/hellodits-portfolio/', // Project site
+  base: '/', // Custom domain
   server: {
     port: 5173
   },
