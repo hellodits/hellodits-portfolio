@@ -1,10 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
+import ThemeToggle from './ThemeToggle';
+import LanguageToggle from './LanguageToggle';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,16 +38,16 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path;
 
   const menuItems = [
-    { path: '/', label: 'Home' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/about', label: 'About' },
-    { path: '/contact', label: 'Contact' }
+    { path: '/', label: t('nav.home') },
+    { path: '/projects', label: t('nav.projects') },
+    { path: '/about', label: t('nav.about') },
+    { path: '/contact', label: t('nav.contact') }
   ];
 
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-white/80 backdrop-blur-sm shadow-sm'
+        scrolled ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-md' : 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm shadow-sm'
       }`}>
         <div className="container-custom px-5">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -84,21 +88,25 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA - Right (Desktop) */}
-            <div className="hidden md:flex justify-end">
+            {/* CTA & Toggles - Right (Desktop) */}
+            <div className="hidden md:flex justify-end items-center gap-2">
+              <ThemeToggle />
+              <LanguageToggle />
               <a 
                 href="/CV-hellodits.pdf" 
                 download
-                className="border-2 border-blue-600 text-blue-600 px-7 py-2.5 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all"
+                className="border-2 border-blue-600 text-blue-600 dark:border-blue-500 dark:text-blue-500 px-7 py-2.5 rounded-lg font-semibold hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 transition-all ml-2"
               >
-                Download CV
+                {t('nav.downloadCV')}
               </a>
             </div>
 
-            {/* Hamburger Button - Right (Mobile) */}
-            <div className="md:hidden flex justify-end">
+            {/* Toggles & Hamburger - Right (Mobile) */}
+            <div className="md:hidden flex justify-end items-center gap-1">
+              <ThemeToggle />
+              <LanguageToggle />
               <button 
-                className="relative w-10 h-10 rounded-lg hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20 mr-1"
+                className="relative w-10 h-10 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
                 aria-expanded={isOpen}
@@ -107,19 +115,19 @@ export default function Navbar() {
                   <div className="w-6 h-5 flex flex-col justify-between">
                     {/* Top line */}
                     <span 
-                      className={`block h-0.5 w-full bg-slate-700 rounded-full transition-all duration-300 ease-in-out ${
+                      className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 rounded-full transition-all duration-300 ease-in-out ${
                         isOpen ? 'rotate-45 translate-y-2' : ''
                       }`}
                     ></span>
                     {/* Middle line */}
                     <span 
-                      className={`block h-0.5 w-full bg-slate-700 rounded-full transition-all duration-300 ease-in-out ${
+                      className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 rounded-full transition-all duration-300 ease-in-out ${
                         isOpen ? 'opacity-0' : 'opacity-100'
                       }`}
                     ></span>
                     {/* Bottom line */}
                     <span 
-                      className={`block h-0.5 w-full bg-slate-700 rounded-full transition-all duration-300 ease-in-out ${
+                      className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 rounded-full transition-all duration-300 ease-in-out ${
                         isOpen ? '-rotate-45 -translate-y-2' : ''
                       }`}
                     ></span>
@@ -141,7 +149,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       <div 
-        className={`fixed top-20 left-0 right-0 bg-white z-40 md:hidden shadow-2xl transition-all duration-300 ease-in-out ${
+        className={`fixed top-20 left-0 right-0 bg-white dark:bg-slate-900 z-40 md:hidden shadow-2xl transition-all duration-300 ease-in-out ${
           isOpen 
             ? 'translate-y-0 opacity-100' 
             : '-translate-y-full opacity-0 pointer-events-none'
@@ -156,7 +164,7 @@ export default function Navbar() {
                 className={`block py-4 px-5 rounded-xl font-semibold transition-all ${
                   isActive(path) 
                     ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg' 
-                    : 'text-slate-700 hover:bg-slate-100'
+                    : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -166,12 +174,12 @@ export default function Navbar() {
             
             {/* Mobile CTA */}
             <a 
-              href="/cv.pdf"
+              href="/CV-hellodits.pdf"
               download
-              className="block mt-4 py-4 px-5 border-2 border-blue-600 text-blue-600 rounded-xl font-bold text-center hover:bg-blue-600 hover:text-white transition-all"
+              className="block mt-4 py-4 px-5 border-2 border-blue-600 text-blue-600 dark:border-blue-500 dark:text-blue-500 rounded-xl font-bold text-center hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 transition-all"
               onClick={() => setIsOpen(false)}
             >
-              Download CV
+              {t('nav.downloadCV')}
             </a>
           </div>
         </div>

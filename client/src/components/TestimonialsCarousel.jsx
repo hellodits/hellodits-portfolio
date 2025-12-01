@@ -1,7 +1,9 @@
 import { Star, Quote, TrendingUp, Users, Award } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function TestimonialsCarousel({ testimonials }) {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const totalSlides = testimonials?.length || 0;
@@ -29,7 +31,7 @@ export default function TestimonialsCarousel({ testimonials }) {
   ];
 
   return (
-    <section className="relative py-12 md:py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden">
+    <section className="relative py-12 md:py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden transition-colors">
       {/* Light decorative elements - Blue only */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
@@ -58,18 +60,15 @@ export default function TestimonialsCarousel({ testimonials }) {
             <div className="text-center lg:text-left space-y-4 md:space-y-5">
               {/* Badge - Same style as others */}
               <div className="inline-block">
-                <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 w-fit mx-auto lg:mx-0">
-                  <Star className="w-3 h-3 fill-blue-700" />
-                  Client Reviews
+                <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 w-fit mx-auto lg:mx-0">
+                  <Star className="w-3 h-3 fill-blue-700 dark:fill-blue-400" />
+                  {t('testimonials.badge')}
                 </span>
               </div>
               
               {/* Bold title with blue accent */}
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
-                <span className="text-slate-900">What Clients</span><br />
-                <span className="text-blue-600">
-                  Say About Us
-                </span>
+                <span className="text-slate-900 dark:text-white">{t('testimonials.title')}</span>
               </h2>
               
               {/* Rating display - Compact version */}

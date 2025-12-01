@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
 import ProfileImageComposition from './ProfileImageComposition';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Hero() {
+  const { t } = useLanguage();
+  
   return (
-    <section className="min-h-[85vh] md:min-h-[90vh] flex items-center relative overflow-hidden bg-white pt-12 md:pt-20">
+    <section className="min-h-[85vh] md:min-h-[90vh] flex items-center relative overflow-hidden bg-white dark:bg-slate-900 pt-12 md:pt-20 transition-colors">
       {/* Decorative Particles - Circle Dots */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Blue dots */}
@@ -36,38 +39,40 @@ export default function Hero() {
           <div className="space-y-4 md:space-y-5 text-left lg:text-left">
             {/* Badge */}
             <div className="inline-block">
-              <span className="bg-blue-100 text-blue-700 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-xs font-bold flex items-center gap-2 w-fit">
+              <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-xs font-bold flex items-center gap-2 w-fit">
                 <Sparkles className="w-3 h-3" />
-                Welcome
+                {t('hero.welcome')}
               </span>
             </div>
             
             {/* Headline - Better line-height for mobile */}
-            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-snug max-w-[90%] lg:max-w-none">
-              I have <span className="text-blue-600">Mobile App</span><br />
-              & Web Development<br />
-              <span className="text-blue-600">Experience</span>
+            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white leading-snug max-w-[90%] lg:max-w-none">
+              {t('hero.title.part1')}
+              <span className="text-blue-600 dark:text-blue-400">{t('hero.title.highlight1')}</span>
+              <br />
+              {t('hero.title.part2')}
+              <br />
+              <span className="text-blue-600 dark:text-blue-400">{t('hero.title.highlight2')}</span>
             </h1>
             
             {/* Description - Better readability */}
-            <p className="text-base md:text-sm lg:text-base text-gray-600 leading-relaxed max-w-[90%] lg:max-w-md">
-              I'm Dita a Full-Stack Developer. Crafting beautiful digital experiences with modern technologies. 
-              Specialized in Web & Mobile App stack and clean code.
+            <p className="text-base md:text-sm lg:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-[90%] lg:max-w-md">
+              {t('hero.description')}
             </p>
             
             {/* CTA Buttons - Better mobile layout */}
             <div className="flex flex-col gap-3 pt-2 max-w-[85%] sm:max-w-none lg:flex-row lg:gap-3">
               <Link 
                 to="/contact" 
-                className="inline-flex items-center justify-center bg-blue-600 text-white px-6 py-3.5 rounded-xl hover:bg-blue-700 transition-all font-semibold shadow-lg shadow-blue-600/20 text-sm md:text-base"
+                className="inline-flex items-center justify-center bg-blue-600 dark:bg-blue-500 text-white px-6 py-3.5 rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 transition-all font-semibold shadow-lg shadow-blue-600/20 text-sm md:text-base"
               >
-                Contact Me
+                {t('hero.contactMe')}
               </Link>
               <Link 
                 to="/projects" 
-                className="inline-flex items-center justify-center gap-2 text-blue-600 font-medium underline underline-offset-2 hover:text-blue-700 transition-all text-sm md:text-base"
+                className="inline-flex items-center justify-center gap-2 text-blue-600 dark:text-blue-400 font-medium underline underline-offset-2 hover:text-blue-700 dark:hover:text-blue-300 transition-all text-sm md:text-base"
               >
-                View Portfolio
+                {t('hero.viewPortfolio')}
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>

@@ -1,6 +1,8 @@
 import { Wrench } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ToolsCarousel() {
+  const { t } = useLanguage();
   // Keyframes
   const keyframesStyle = `
     @keyframes slideLeft {
@@ -46,7 +48,7 @@ export default function ToolsCarousel() {
   return (
     <>
       <style>{keyframesStyle}</style>
-      <section className="pt-16 md:pt-20 pb-20 md:pb-28 bg-gradient-to-b from-white to-blue-50/30 overflow-hidden relative">
+      <section className="pt-16 md:pt-20 pb-20 md:pb-28 bg-gradient-to-b from-white to-blue-50/30 dark:from-slate-900 dark:to-slate-800/30 overflow-hidden relative transition-colors">
         {/* Decorative Particles - Circle Dots */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Blue dots */}
@@ -68,17 +70,18 @@ export default function ToolsCarousel() {
           <div className="text-center mb-12 md:mb-16">
             {/* Badge */}
             <div className="flex justify-center mb-4">
-              <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2">
+              <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2">
                 <Wrench className="w-3 h-3" />
-                Tech Stack
+                {t('tools.badge')}
               </span>
             </div>
             
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 text-slate-900">
-              Tools I Use
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 text-slate-900 dark:text-white">
+              {t('tools.title.part1')}
+              <span className="text-blue-600 dark:text-blue-400">{t('tools.title.highlight')}</span>
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-2">
-              Daily tools that power my development workflow and bring ideas to life
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed px-2">
+              {t('tools.description')}
             </p>
           </div>
 

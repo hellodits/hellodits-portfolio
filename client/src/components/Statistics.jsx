@@ -1,14 +1,17 @@
 import { TrendingUp } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Statistics() {
+  const { t } = useLanguage();
+  
   const stats = [
-    { number: '80+', label: 'Clients' },
-    { number: '200+', label: 'Projects' },
-    { number: '99+', label: 'Reviews' }
+    { number: '80+', label: t('stats.clients') },
+    { number: '200+', label: t('stats.projects') },
+    { number: '99+', label: t('stats.reviews') }
   ];
 
   return (
-    <section className="py-12 md:py-12 bg-white relative overflow-hidden mt-12">
+    <section className="py-12 md:py-12 bg-white dark:bg-slate-900 relative overflow-hidden mt-12 transition-colors">
       {/* Decorative Particles - Circle Dots */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Blue dots */}
@@ -27,9 +30,9 @@ export default function Statistics() {
       <div className="container-custom px-4 relative z-10">
         {/* Badge - Centered - Smaller on mobile */}
         <div className="flex justify-center mb-5">
-          <span className="bg-blue-100 text-blue-700 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-xs font-bold flex items-center gap-2">
+          <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-xs font-bold flex items-center gap-2">
             <TrendingUp className="w-3 h-3" />
-            Achievements
+            {t('stats.achievements')}
           </span>
         </div>
         
@@ -38,12 +41,12 @@ export default function Statistics() {
           {stats.map((stat, idx) => (
             <div 
               key={idx} 
-              className="text-center p-5 md:p-5 bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100"
+              className="text-center p-5 md:p-5 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-600"
             >
-              <div className="text-3xl md:text-3xl font-bold text-blue-600 mb-1">
+              <div className="text-3xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">
                 {stat.number}
               </div>
-              <div className="text-sm md:text-sm text-slate-700 font-semibold">
+              <div className="text-sm md:text-sm text-slate-700 dark:text-slate-300 font-semibold">
                 {stat.label}
               </div>
             </div>

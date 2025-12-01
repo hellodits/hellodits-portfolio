@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getProjectBySlug } from '../lib/api';
 import { getAssetUrl } from '../lib/utils';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ProjectDetail() {
+  const { t } = useLanguage();
   const { slug } = useParams();
   const [project, setProject] = useState(null);
 
@@ -14,13 +16,13 @@ export default function ProjectDetail() {
   }, [slug]);
 
   if (!project) return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-2xl text-gray-500">Loading...</div>
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+      <div className="text-2xl text-gray-500 dark:text-gray-400">{t('projects.loading')}</div>
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors">
       {/* Hero Image */}
       <section className="relative h-[60vh] overflow-hidden">
         <img 
@@ -31,22 +33,22 @@ export default function ProjectDetail() {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 p-8">
           <div className="container-custom max-w-5xl">
-            <Link to="/projects" className="inline-flex items-center text-white/80 hover:text-white mb-6 transition">
+            <Link to="/projects" className="inline-flex items-center text-white/80 hover:text-white dark:text-gray-300 dark:hover:text-white mb-6 transition">
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              Back to Projects
+              {t('projectDetail.backToProjects')}
             </Link>
             <div className="flex items-center gap-3 mb-4">
-              <span className="bg-primary text-white px-4 py-1.5 rounded-full text-sm font-semibold">
+              <span className="bg-primary dark:bg-blue-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold">
                 {project.category}
               </span>
-              <span className="bg-white/20 backdrop-blur text-white px-4 py-1.5 rounded-full text-sm font-semibold">
+              <span className="bg-white/20 dark:bg-slate-800/50 backdrop-blur text-white px-4 py-1.5 rounded-full text-sm font-semibold">
                 {project.year}
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">{project.title}</h1>
-            <p className="text-xl text-gray-200 max-w-3xl">{project.short}</p>
+            <p className="text-xl text-gray-200 dark:text-gray-300 max-w-3xl">{project.short}</p>
           </div>
         </div>
       </section>
@@ -57,15 +59,15 @@ export default function ProjectDetail() {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-xl p-8 shadow-md mb-8">
-                <h2 className="text-3xl font-bold mb-6">About the Project</h2>
-                <p className="text-lg text-gray-700 leading-relaxed">{project.description}</p>
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-md mb-8 transition-colors">
+                <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">{t('projectDetail.aboutProject')}</h2>
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">{project.description}</p>
               </div>
 
               {/* Screenshots */}
               {project.screenshots && project.screenshots.length > 0 && (
-                <div className="bg-white rounded-xl p-8 shadow-md">
-                  <h2 className="text-3xl font-bold mb-6">Screenshots</h2>
+                <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-md transition-colors">
+                  <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">{t('projectDetail.screenshots')}</h2>
                   <div className="grid md:grid-cols-2 gap-4">
                     {project.screenshots.map((screenshot, idx) => (
                       <img 
@@ -83,25 +85,25 @@ export default function ProjectDetail() {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               {/* Tech Stack */}
-              <div className="bg-white rounded-xl p-6 shadow-md mb-6 sticky top-6">
-                <h3 className="text-2xl font-bold mb-4">Tech Stack</h3>
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md mb-6 sticky top-6 transition-colors">
+                <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{t('projectDetail.techStack')}</h3>
                 <div className="flex flex-wrap gap-2 mb-8">
                   {project.stack.map(tech => (
-                    <span key={tech} className="bg-slate-100 text-slate-800 px-4 py-2 rounded-lg font-medium text-sm">
+                    <span key={tech} className="bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 px-4 py-2 rounded-lg font-medium text-sm">
                       {tech}
                     </span>
                   ))}
                 </div>
 
                 {/* Project Links - Card Style */}
-                <h3 className="text-xl font-bold mb-4">Project Links</h3>
+                <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">{t('projectDetail.projectLinks')}</h3>
                 <div className="space-y-3">
                   {(project.repo || true) && (
                     <a 
                       href={project.repo || 'https://github.com'} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group block bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-5 hover:shadow-xl transition-all duration-300 hover:scale-105"
+                      className="group block bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-700 dark:to-slate-800 rounded-xl p-5 hover:shadow-xl transition-all duration-300 hover:scale-105"
                     >
                       <div className="flex items-start gap-4">
                         <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition">
@@ -110,8 +112,8 @@ export default function ProjectDetail() {
                           </svg>
                         </div>
                         <div className="flex-1">
-                          <div className="font-bold text-white mb-1 group-hover:text-blue-300 transition">View Source Code</div>
-                          <div className="text-sm text-gray-400">Check out the repository on GitHub</div>
+                          <div className="font-bold text-white mb-1 group-hover:text-blue-300 transition">{t('projectDetail.viewSource')}</div>
+                          <div className="text-sm text-gray-400">{t('projectDetail.viewSourceDesc')}</div>
                         </div>
                         <svg className="w-5 h-5 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -124,7 +126,7 @@ export default function ProjectDetail() {
                       href={project.live || 'https://example.com'} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group block bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-5 hover:shadow-xl transition-all duration-300 hover:scale-105"
+                      className="group block bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 rounded-xl p-5 hover:shadow-xl transition-all duration-300 hover:scale-105"
                     >
                       <div className="flex items-start gap-4">
                         <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition">
@@ -133,8 +135,8 @@ export default function ProjectDetail() {
                           </svg>
                         </div>
                         <div className="flex-1">
-                          <div className="font-bold text-white mb-1 group-hover:text-blue-100 transition">Visit Live Website</div>
-                          <div className="text-sm text-blue-100">See the project in action</div>
+                          <div className="font-bold text-white mb-1 group-hover:text-blue-100 transition">{t('projectDetail.visitLive')}</div>
+                          <div className="text-sm text-blue-100">{t('projectDetail.visitLiveDesc')}</div>
                         </div>
                         <svg className="w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

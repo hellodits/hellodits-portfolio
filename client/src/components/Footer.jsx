@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+  
   return (
-    <footer className="bg-slate-900 text-white overflow-hidden">
+    <footer className="bg-slate-900 dark:bg-slate-950 text-white overflow-hidden transition-colors">
       <div className="container-custom py-10 md:py-16 px-4">
         <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           <div className="md:col-span-2">
             <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
               hellodits
             </h3>
-            <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
-              Full-Stack Developer passionate about creating beautiful, functional web applications. 
-              Let's build something amazing together.
+            <p className="text-gray-400 dark:text-gray-500 mb-6 max-w-md leading-relaxed">
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               {[
@@ -35,15 +37,15 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="font-bold text-lg mb-4">Quick Links</h4>
+            <h4 className="font-bold text-lg mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-3">
               {[
-                { path: '/projects', label: 'Projects' },
-                { path: '/about', label: 'About' },
-                { path: '/contact', label: 'Contact' }
+                { path: '/projects', label: t('nav.projects') },
+                { path: '/about', label: t('nav.about') },
+                { path: '/contact', label: t('nav.contact') }
               ].map(({ path, label }) => (
                 <li key={path}>
-                  <Link to={path} className="text-gray-400 hover:text-primary transition">
+                  <Link to={path} className="text-gray-400 dark:text-gray-500 hover:text-primary transition">
                     {label}
                   </Link>
                 </li>
@@ -52,31 +54,31 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="font-bold text-lg mb-4">Contact</h4>
-            <ul className="space-y-3 text-gray-400">
+            <h4 className="font-bold text-lg mb-4">{t('footer.contact')}</h4>
+            <ul className="space-y-3 text-gray-400 dark:text-gray-500">
               <li className="flex items-start gap-2">
                 <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span className="break-all text-sm">hellodits19@gmail.com</span>
+                <span className="break-all text-sm">{t('footer.email')}</span>
               </li>
               <li className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                Jakarta, Indonesia
+                {t('footer.location')}
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">
-            &copy; 2024. All rights reserved
+        <div className="border-t border-slate-800 dark:border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-400 dark:text-gray-500 text-sm">
+            &copy; 2024. {t('footer.rights')}
           </p>
-          <p className="text-gray-400 text-sm">
-            Built by hellodits
+          <p className="text-gray-400 dark:text-gray-500 text-sm">
+            {t('footer.builtBy')}
           </p>
         </div>
       </div>

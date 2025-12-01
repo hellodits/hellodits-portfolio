@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { getAssetUrl } from '../lib/utils';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function PortfolioCarousel({ projects }) {
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [hoveredProject, setHoveredProject] = useState(null);
 
@@ -18,7 +20,7 @@ export default function PortfolioCarousel({ projects }) {
     : displayProjects.filter(p => p.category === selectedCategory);
 
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden transition-colors">
       {/* Modern decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-200/30 rounded-full blur-3xl"></div>
@@ -47,21 +49,22 @@ export default function PortfolioCarousel({ projects }) {
             <div className="lg:sticky lg:top-24 lg:self-start space-y-6">
               {/* Badge */}
               <div className="inline-block">
-                <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 w-fit">
+                <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 w-fit">
                   <Sparkles className="w-3 h-3" />
-                  Featured Works
+                  {t('portfolio.badge')}
                 </span>
               </div>
               
               {/* Section title */}
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
-                My Digital<br />
-                <span className="text-blue-600">Development Works</span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white leading-tight">
+                {t('portfolio.title.part1')}
+                <span className="text-blue-600 dark:text-blue-400">{t('portfolio.title.highlight')}</span>
+                {t('portfolio.title.part2')}
               </h2>
               
               {/* Elegant description */}
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-md">
-                Explore my latest projects showcasing modern web and mobile development with cutting-edge technologies.
+              <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-md">
+                {t('portfolio.description')}
               </p>
               
               {/* Category tabs - Modern pills */}
@@ -72,8 +75,8 @@ export default function PortfolioCarousel({ projects }) {
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
                       selectedCategory === category
-                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30 scale-105'
-                        : 'bg-white text-gray-700 hover:bg-slate-100 border border-slate-200'
+                        ? 'bg-blue-600 dark:bg-blue-500 text-white shadow-lg shadow-blue-600/30 scale-105'
+                        : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-600'
                     }`}
                   >
                     {category}
@@ -84,21 +87,21 @@ export default function PortfolioCarousel({ projects }) {
               {/* Stats - Clean version */}
               <div className="flex gap-8 pt-2">
                 <div>
-                  <div className="text-3xl font-bold text-blue-600">{filteredProjects.length}</div>
-                  <div className="text-xs text-gray-600 uppercase tracking-wider">Projects</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{filteredProjects.length}</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400 uppercase tracking-wider">{t('stats.projects')}</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-blue-600">{categories.length - 1}</div>
-                  <div className="text-xs text-gray-600 uppercase tracking-wider">Categories</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{categories.length - 1}</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400 uppercase tracking-wider">{t('portfolio.categories')}</div>
                 </div>
               </div>
               
               {/* Show More Button */}
               <Link
                 to="/projects"
-                className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 transition-all duration-300 hover:scale-105"
+                className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 transition-all duration-300 hover:scale-105"
               >
-                <span className="text-sm md:text-base">View All Projects</span>
+                <span className="text-sm md:text-base">{t('portfolio.viewAll')}</span>
                 <div className="flex items-center gap-1">
                   <span className="text-xs opacity-80">({projects.length}+)</span>
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -114,7 +117,7 @@ export default function PortfolioCarousel({ projects }) {
                   to={`/projects/${project.slug}`}
                   onMouseEnter={() => setHoveredProject(idx)}
                   onMouseLeave={() => setHoveredProject(null)}
-                  className="group relative overflow-hidden rounded-2xl bg-slate-100 aspect-[3/4] shadow-lg hover:shadow-2xl transition-all duration-500"
+                  className="group relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 aspect-[3/4] shadow-lg hover:shadow-2xl transition-all duration-500"
                 >
                   {/* Image with zoom effect */}
                   <img 
@@ -139,8 +142,8 @@ export default function PortfolioCarousel({ projects }) {
                       </h3>
                       
                       {/* View link */}
-                      <div className="flex items-center gap-1 text-blue-400 text-xs font-semibold">
-                        View Project
+                      <div className="flex items-center gap-1 text-blue-400 dark:text-blue-300 text-xs font-semibold">
+                        {t('portfolio.viewProject')}
                         <ExternalLink className="w-3 h-3" />
                       </div>
                     </div>
